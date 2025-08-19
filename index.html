@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pusat jual beli online terpercaya dan termurah - Khairi Store"
+    />
+    <meta
+      name="keywords"
+      content="toko online, jual beli, pembayaran, tng, qris"
+    />
+    <meta name="author" content="Khairi Store" />
+    <meta name="theme-color" content="#1a1a2e" />
+
+    <title>Metode Pembayaran - Khairi Store</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/style.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="profile">
+          <div>
+            <h1>Khairi Store</h1>
+            <p class="tagline">Pusat jual beli account online terpercaya</p>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="payment-section">
+          <h2>Pilih Metode Pembayaran</h2>
+          <p class="instruction">
+            Pilih salah satu metode pembayaran di bawah ini:
+          </p>
+
+          <div class="payment-options" role="radiogroup">
+            <!-- TNG -->
+            <button
+              id="tng"
+              class="pay-btn"
+              role="radio"
+              aria-checked="false"
+              aria-label="Touch n Go"
+            >
+              <img
+                src="./assets/tng-icon.png"
+                alt="Logo TNG"
+                width="24"
+                height="24"
+              />
+              <span>TNG</span>
+            </button>
+
+            <!-- QRIS -->
+            <button
+              id="qris"
+              class="pay-btn"
+              role="radio"
+              aria-checked="false"
+              aria-label="QRIS"
+            >
+              <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+              <span>QRIS</span>
+            </button>
+          </div>
+
+          <!-- Display TNG -->
+          <div
+            id="tngDisplay"
+            class="paymentDisplay"
+            role="region"
+            aria-labelledby="tng-heading"
+            hidden
+          >
+            <h3 id="tng-heading">
+              <img
+                src="/assets/tng-icon.png"
+                alt="Logo TNG"
+                width="20"
+                height="20"
+              />
+              Pembayaran via TNG
+            </h3>
+            <div class="payment-info">
+              <p>
+                <strong>Nama:</strong> WAN MUNEEBAD KHAIRI HAFIY BIN MOHD
+                KHAIRUE
+              </p>
+              <p class="payment-number">
+                <strong>Nomor:</strong>
+                <span id="tngNumber">100318517007</span>
+                <button
+                  class="copyBtn"
+                  data-target="tngNumber"
+                  aria-label="Salin nomor TNG"
+                >
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  <span class="sr-only">Salin</span>
+                </button>
+              </p>
+              <p class="payment-instruction">
+                Silakan transfer ke nomor TNG di atas lalu konfirmasi pembayaran
+                Anda.
+              </p>
+            </div>
+          </div>
+
+          <!-- Display QRIS -->
+          <div
+            id="qrisDisplay"
+            class="paymentDisplay"
+            role="region"
+            aria-labelledby="qris-heading"
+            hidden
+          >
+            <h3 id="qris-heading">
+              <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+              Pembayaran via QRIS
+            </h3>
+            <div class="payment-info">
+              <p>Scan QR di aplikasi pembayaran Anda:</p>
+              <figure class="qr-code">
+                <img
+                  src="/assets/qriss-khairi.jpg"
+                  alt="QR Code untuk pembayaran QRIS"
+                />
+                <figcaption>QR Code Khairi Store</figcaption>
+              </figure>
+              <a
+                href="./assets/qriss-khairi.jpg"
+                download="QRIS-Khairi-Store.jpg"
+                class="download-btn"
+              >
+                <i class="fa-solid fa-download"></i> Download QRIS
+              </a>
+              <p class="payment-instruction">
+                Scan kode QR ini menggunakan aplikasi pembayaran yang mendukung
+                QRIS.
+              </p>
+            </div>
+          </div>
+
+          <div class="payment-note">
+            <p>
+              <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+              Setelah melakukan pembayaran, silakan konfirmasi melalui WhatsApp.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <!-- isi footer tetap sama -->
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Tentang Khairi Store</h3>
+            <p>
+              Pusat jual beli account online terpercaya dan termurah. Melayani
+              dengan sepenuh hati sejak 2020.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Kontak Kami</h3>
+            <ul class="contact-list">
+              <li>
+                <a
+                  href="https://www.instagram.com/khairi_st0re?igsh=anhiYW1kNXZvMDV0"
+                >
+                  <i class="fa-brands fa-instagram"></i> khairi_st0re
+                </a>
+              </li>
+              <li>
+                <a href="tel:+60132691523">
+                  <i class="fa-brands fa-tiktok"></i> khairi_store16
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/60132691523" target="_blank">
+                  <i class="fa-brands fa-whatsapp"></i> +60 132691523
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Ikuti Kami</h3>
+            <div class="social-links">
+              <a href="https://wa.me/60132691523" target="_blank"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/khairi_st0re?igsh=anhiYW1kNXZvMDV0"
+                target="_blank"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@khairi_store16?_t=ZS-8z0wFf7NHYl&_r=1"
+                target="_blank"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            <p>&copy; 2025 Khairi Store. Semua Hak Dilindungi.</p>
+          </div>
+          <div class="footer-links">
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">FAQ</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div id="toast" class="toast">
+      <i class="fa-solid fa-circle-check"></i>
+      <span>Nomor berhasil disalin!</span>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

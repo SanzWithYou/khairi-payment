@@ -1,0 +1,445 @@
+/* === Root Variables === */
+:root {
+  --primary-color: #00c9ff;
+  --secondary-color: #92fe9d;
+  --bg-dark: #0f172a;
+  --text-light: #ffffff;
+  --text-muted: #cbd5e1;
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  --border-radius: 12px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --transition: all 0.3s ease;
+}
+
+/* === Animations === */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 201, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 201, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 201, 255, 0.6);
+  }
+}
+
+@keyframes toastPop {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastHide {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+}
+
+
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* === Container === */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* === Header === */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.profile img {
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+.profile h1 {
+  font-size: 1.4rem;
+}
+.tagline {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* === Payment Section === */
+.payment-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  animation: fadeSlideUp 0.8s ease both;
+}
+.payment-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+.instruction {
+  margin-bottom: 20px;
+  color: var(--text-muted);
+}
+
+/* === Payment Options === */
+.payment-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.pay-btn {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.pay-btn img {
+  width: 22px;
+  height: 22px;
+}
+.pay-btn:hover,
+.pay-btn.active {
+  background: var(--primary-color);
+  color: #000;
+  transform: translateY(-3px);
+  animation: pulseGlow 1.5s infinite;
+}
+.pay-btn i {
+  transition: var(--transition);
+}
+.pay-btn:hover i {
+  transform: scale(1.1);
+}
+
+/* === Payment Display === */
+.paymentDisplay {
+  display: none;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-top: 20px;
+  animation: fadeSlideUp 0.6s ease both;
+}
+.paymentDisplay h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+.paymentDisplay p {
+  margin-top: 20px;
+}
+.payment-info p {
+  margin-bottom: 20px;
+}
+.payment-number {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.copyBtn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+.copyBtn:hover {
+  background: var(--primary-color);
+  color: #000;
+  transform: scale(1.05);
+}
+.qr-code {
+  text-align: center;
+  margin-top: 16px;
+}
+.qr-code img {
+  max-width: 40%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+ transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.qr-code img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 201, 255, 0.6);
+}
+
+.qr-code figcaption {
+  margin-top: 25px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* === Payment Note === */
+.payment-note {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* === Toast Notification === */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--primary-color);
+  color: #000;
+  padding: 12px 18px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toast.show {
+  animation: toastPop 0.6s ease forwards, toastHide 0.6s ease 2.5s forwards;
+}
+
+/* === Footer Modern === */
+footer {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 30px 20px;
+  margin-top: 40px;
+  box-shadow: var(--shadow);
+  color: var(--text-light);
+  animation: fadeSlideUp 0.8s ease both;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  position: relative;
+  color: var(--primary-color);
+}
+.footer-section h3::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--primary-color);
+  margin-top: 4px;
+  border-radius: 2px;
+}
+
+.footer-section p,
+.footer-section a {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+.footer-section a:hover {
+  color: var(--primary-color);
+  /* transform: translateX(3px); */
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.contact-list li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.contact-list a {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-left: 0;
+  transition: var(--transition);
+}
+
+.contact-list li a:hover {
+  color: var(--primary-color);
+  padding-left: 18px;
+  transform: translateX(5px);
+}
+
+.contact-list li a::before {
+  content: "→";
+  position: absolute;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.contact-list li a:hover::before {
+  opacity: 1;
+  left: 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+.social-links a {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-light);
+  transition: var(--transition);
+  text-decoration: none;
+  cursor: pointer;
+}
+.social-links a:hover {
+  background: var(--primary-color);
+  color: #000;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 18px rgba(0, 201, 255, 0.8);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+.footer-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+.footer-links a:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 8px rgba(0, 201, 255, 0.6);
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 10px 16px;
+  background: var(--primary-color);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  width: 100%;
+  box-shadow: var(--shadow);
+  justify-content: center;
+}
+
+.download-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 201, 255, 0.4);
+}
+
+
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .payment-options {
+    flex-direction: column;
+  }
+  .qr-code img {
+    max-width: 100%;
+  }
+  .pay-btn {
+    width: 100%;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
